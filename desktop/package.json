@@ -1,14 +1,14 @@
 {
-  "name": "Photobase",
+  "name": "photobase",
   "version": "1.0.0",
-  "description": "Electron JS Desktop App",
+  "description": "An Electron JS App",
   "main": "main.js",
+  "author": "Micah Perez",
+  "license": "MIT",
   "scripts": {
     "start": "electron ."
   },
-  "author": "Micah Perez",
-  "license": "MIT",
   "devDependencies": {
-    "electron": "^17.0.0"
+    "electron": "^17.0.1"
   }
 }
