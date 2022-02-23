@@ -6,9 +6,15 @@
   "author": "Micah Perez",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron main.js"
   },
   "devDependencies": {
     "electron": "^17.0.1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "ejs-electron": "^2.1.1",
+    "express": "^4.17.2",
+    "pug": "^3.0.2"
   }
 }

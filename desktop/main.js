@@ -1,6 +1,8 @@
 const {app, BrowserWindow, ipcMain, dialog} = require('electron')
 const path = require('path')
 const fs = require('fs');
+//const server = require("./app");
+const server = require("./server");
 
 
 async function handleFileOpen() {
@@ -27,24 +29,49 @@ async function saveFile() {
     })
 }
 
+// function createWindow () {
+//   const mainWindow = new BrowserWindow({
+//     webPreferences: {
+//       preload: path.join(__dirname, 'preload.js'),
+//       nodeIntegration: true,
+//     }
+//   });
+//   mainWindow.loadURL("http://localhost:3000");
+//   mainWindow.on("closed", function () {
+//    mainWindow = null;
+//  });
+// }
+
 function createWindow () {
+    
   const mainWindow = new BrowserWindow({
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    }
-  })
-  mainWindow.loadFile('index.html')
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nodeIntegration: true
+      }
+  });
+
+  mainWindow.loadURL("http://localhost:8080");
+  
 }
 
-app.whenReady().then(() => {
-  ipcMain.handle('dialog:openFile', handleFileOpen)
-  ipcMain.handle('fs:saveFile', saveFile)
-  createWindow()
-  app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
-  })
-})
 
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') app.quit()
-})
+//app.on("ready", createWindow);
+app.whenReady().then(createWindow);
+
+app.on("resize", function (e, x, y) {
+  mainWindow.setSize(x, y);
+});
+
+app.on("window-all-closed", function () {
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
+});
+
+app.on("activate", function () {
+  if (mainWindow === null) {
+    createWindow();
+  }
+});
