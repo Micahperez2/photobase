@@ -14,7 +14,11 @@
   "dependencies": {
     "ejs": "^3.1.6",
     "ejs-electron": "^2.1.1",
-    "express": "^4.17.2",
-    "pug": "^3.0.2"
+    "express": "^4.17.3",
+    "g": "^2.0.1",
+    "ngrok": "^4.3.0",
+    "nodemon": "^2.0.15",
+    "pug": "^3.0.2",
+    "socket.io": "^4.4.1"
   }
 }

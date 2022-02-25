@@ -11,19 +11,17 @@
 </header>
 
 <main>
-  <div class="jumbotron">
-    <h1>This is great</h1>
-    <p>Welcome to templating using EJS</p>
-
-    <h2>Variable</h2>
+  <div style="background:black !important" class="jumbotron">
+  
+    <h3 style="color: white" class="center" >Messages Sent: </h3>
     <p><%= tagline %></p>
 
-    <ul>
-      <% mascots.forEach(function(mascot) { %>
+    <ul style="color: white" class="center">
+      <% photos.forEach(function(photo) { %>
         <li>
-          <strong><%= mascot.name %></strong>
-          representing <%= mascot.organization %>,
-          born <%= mascot.birth_year %>
+          <%= photo.name %>
+          taken at <%= photo.time %>,
+          at <%= photo.location %>
         </li>
       <% }); %>
     </ul>

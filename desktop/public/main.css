@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Chalkduster;
+    src: url("./fonts/Chalkduster.ttf");
+  }
+
+.text-common {
+    font-family: "Chalkduster";
+    color: #ba55d3;
+    font-size: 40px;
+}
+
+body { 
+  background-color: Black; 
+  color: Black;
+}
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
