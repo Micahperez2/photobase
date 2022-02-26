@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 //const ngrok = require('ngrok');
+var localtunnel = require('localtunnel');
 
 app.use(express.urlencoded({extended: true}));
 
@@ -10,6 +11,7 @@ app.use(express.static("public"));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 var photos = []
+var online_url = "";
 
 // use res.render to load up an ejs view file
 // index page
@@ -27,7 +29,8 @@ app.get('/', (req, res) => {
     
       res.render('pages/index', {
         photos: photos,
-        tagline: tagline
+        tagline: tagline,
+        online_url: online_url,
       });
 });
 
@@ -47,21 +50,13 @@ app.get('/about', function(req, res) {
 //app.listen(8080);
 //console.log('Server is listening on port 8080');
 
- app.listen(8080, '0.0.0.0');
- console.log('Server is listening on port 8080')
+  app.listen(8080, '0.0.0.0');
+//  console.log('Server is listening on port 8080')
 
-
-// const server = app.listen(8080, () => {
-//   console.log('Running at 8080');
-// });
-
-// ngrok.connect({
-//   proto : 'http',
-//   addr : process.env.PORT,
-// }, (err, url) => {
-//   if (err) {
-//       console.error('Error while connecting Ngrok',err);
-//       return new Error('Ngrok Failed');
-//   }
-// });
-
+(async () => {
+  const tunnel = await localtunnel({ port: 8080 });
+  console.log(tunnel.url);  
+  online_url = tunnel.url;
+  tunnel.on('close', () => {
+  });
+})();
