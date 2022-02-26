@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="3">
+  <meta http-equiv="refresh" content="5">
   <%- include('../partials/head'); %>
 </head>
-<body class="container">
+<body class="container" style="background:black">
 
 <header>
   <%- include('../partials/header'); %>
 </header>
 
 <main>
-  <div style="background:black !important" class="jumbotron">
   
-    <h3 style="color: white" class="center" >Messages Sent: </h3>
+    <h4 style="color: white; padding-top: 20px;" class="text-center">Most Recent Photo: </h4>
     <p><%= tagline %></p>
 
     <ul style="color: white" class="center">
@@ -25,13 +24,16 @@
         </li>
       <% }); %>
     </ul>
-    <h3 style="color: white" class="center" ><%= online_url %></h3>
-  </div>
 </main>
 
+<div class="wrapper">
+  <div class="push"></div>
+</div>
+<p style="color: white" class="text-center" > URL: <%= online_url %></p>
 <footer>
   <%- include('../partials/footer'); %>
 </footer>
+</div>
 
 </body>
 </html>
