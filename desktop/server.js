@@ -58,7 +58,7 @@ app.listen(8080, "0.0.0.0");
   //With Custom Subdomain
   //const tunnel = await localtunnel({ port: 8080, subdomain: "heyworld" });
   console.log(tunnel.url);
-  online_url = tunnel.url.replace("https://","");;
-  online_url = online_url.replace(".loca.lt", "")
+  online_url = tunnel.url.replace("https://", "");
+  online_url = online_url.replace(".loca.lt", "");
   tunnel.on("close", () => {});
 })();
