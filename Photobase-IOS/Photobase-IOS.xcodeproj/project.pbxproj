@@ -7,66 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		75891D1627DEFBFD00EB4F23 /* photobase in Resources */ = {isa = PBXBuildFile; fileRef = 75891D1527DEFBFD00EB4F23 /* photobase */; };
-		75EADB1227CACCFA00D094D7 /* ios_photobaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EADB1127CACCFA00D094D7 /* ios_photobaseApp.swift */; };
-		75EADB1427CACCFA00D094D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EADB1327CACCFA00D094D7 /* ContentView.swift */; };
-		75EADB1627CACCFC00D094D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EADB1527CACCFC00D094D7 /* Assets.xcassets */; };
-		75EADB1927CACCFC00D094D7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EADB1827CACCFC00D094D7 /* Preview Assets.xcassets */; };
-		75EADB2327CACCFC00D094D7 /* ios_photobaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EADB2227CACCFC00D094D7 /* ios_photobaseTests.swift */; };
-		75EADB2D27CACCFC00D094D7 /* ios_photobaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EADB2C27CACCFC00D094D7 /* ios_photobaseUITests.swift */; };
-		75EADB2F27CACCFC00D094D7 /* ios_photobaseUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EADB2E27CACCFC00D094D7 /* ios_photobaseUITestsLaunchTests.swift */; };
-		75EDA36427DEFD9000D0985F /* Chalkduster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75EDA36327DEFD8F00D0985F /* Chalkduster.ttf */; };
+		7557484C27E27CE50050BB19 /* Photobase_IOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557484B27E27CE50050BB19 /* Photobase_IOSApp.swift */; };
+		7557484E27E27CE50050BB19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557484D27E27CE50050BB19 /* ContentView.swift */; };
+		7557485027E27CE70050BB19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7557484F27E27CE70050BB19 /* Assets.xcassets */; };
+		7557485327E27CE70050BB19 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7557485227E27CE70050BB19 /* Preview Assets.xcassets */; };
+		7557485D27E27CE70050BB19 /* Photobase_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557485C27E27CE70050BB19 /* Photobase_IOSTests.swift */; };
+		7557486727E27CE70050BB19 /* Photobase_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557486627E27CE70050BB19 /* Photobase_IOSUITests.swift */; };
+		7557486927E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557486827E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		75EADB1F27CACCFC00D094D7 /* PBXContainerItemProxy */ = {
+		7557485927E27CE70050BB19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75EADB0627CACCF900D094D7 /* Project object */;
+			containerPortal = 7557484027E27CE50050BB19 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 75EADB0D27CACCF900D094D7;
-			remoteInfo = "ios-photobase";
+			remoteGlobalIDString = 7557484727E27CE50050BB19;
+			remoteInfo = "Photobase-IOS";
 		};
-		75EADB2927CACCFC00D094D7 /* PBXContainerItemProxy */ = {
+		7557486327E27CE70050BB19 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 75EADB0627CACCF900D094D7 /* Project object */;
+			containerPortal = 7557484027E27CE50050BB19 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 75EADB0D27CACCF900D094D7;
-			remoteInfo = "ios-photobase";
+			remoteGlobalIDString = 7557484727E27CE50050BB19;
+			remoteInfo = "Photobase-IOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		75891D1527DEFBFD00EB4F23 /* photobase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = photobase; path = ../..; sourceTree = "<group>"; };
-		75EADB0E27CACCFA00D094D7 /* ios-photobase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-photobase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EADB1127CACCFA00D094D7 /* ios_photobaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_photobaseApp.swift; sourceTree = "<group>"; };
-		75EADB1327CACCFA00D094D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		75EADB1527CACCFC00D094D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		75EADB1827CACCFC00D094D7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		75EADB1E27CACCFC00D094D7 /* ios-photobaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-photobaseTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EADB2227CACCFC00D094D7 /* ios_photobaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_photobaseTests.swift; sourceTree = "<group>"; };
-		75EADB2827CACCFC00D094D7 /* ios-photobaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-photobaseUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EADB2C27CACCFC00D094D7 /* ios_photobaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_photobaseUITests.swift; sourceTree = "<group>"; };
-		75EADB2E27CACCFC00D094D7 /* ios_photobaseUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_photobaseUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		75EDA36327DEFD8F00D0985F /* Chalkduster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chalkduster.ttf; sourceTree = "<group>"; };
-		75EDA36527DEFF8500D0985F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7557484827E27CE50050BB19 /* Photobase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photobase.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7557484B27E27CE50050BB19 /* Photobase_IOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSApp.swift; sourceTree = "<group>"; };
+		7557484D27E27CE50050BB19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7557484F27E27CE70050BB19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7557485227E27CE70050BB19 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7557485827E27CE70050BB19 /* Photobase-IOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photobase-IOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7557485C27E27CE70050BB19 /* Photobase_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSTests.swift; sourceTree = "<group>"; };
+		7557486227E27CE70050BB19 /* Photobase-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photobase-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7557486627E27CE70050BB19 /* Photobase_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSUITests.swift; sourceTree = "<group>"; };
+		7557486827E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		75EADB0B27CACCF900D094D7 /* Frameworks */ = {
+		7557484527E27CE50050BB19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB1B27CACCFC00D094D7 /* Frameworks */ = {
+		7557485527E27CE70050BB19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB2527CACCFC00D094D7 /* Frameworks */ = {
+		7557485F27E27CE70050BB19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -76,145 +71,142 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75EADB0527CACCF900D094D7 = {
+		7557483F27E27CE50050BB19 = {
 			isa = PBXGroup;
 			children = (
-				75EADB1027CACCFA00D094D7 /* ios-photobase */,
-				75EADB2127CACCFC00D094D7 /* ios-photobaseTests */,
-				75EADB2B27CACCFC00D094D7 /* ios-photobaseUITests */,
-				75EADB0F27CACCFA00D094D7 /* Products */,
+				7557484A27E27CE50050BB19 /* Photobase-IOS */,
+				7557485B27E27CE70050BB19 /* Photobase-IOSTests */,
+				7557486527E27CE70050BB19 /* Photobase-IOSUITests */,
+				7557484927E27CE50050BB19 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		75EADB0F27CACCFA00D094D7 /* Products */ = {
+		7557484927E27CE50050BB19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75EADB0E27CACCFA00D094D7 /* ios-photobase.app */,
-				75EADB1E27CACCFC00D094D7 /* ios-photobaseTests.xctest */,
-				75EADB2827CACCFC00D094D7 /* ios-photobaseUITests.xctest */,
+				7557484827E27CE50050BB19 /* Photobase.app */,
+				7557485827E27CE70050BB19 /* Photobase-IOSTests.xctest */,
+				7557486227E27CE70050BB19 /* Photobase-IOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75EADB1027CACCFA00D094D7 /* ios-photobase */ = {
+		7557484A27E27CE50050BB19 /* Photobase-IOS */ = {
 			isa = PBXGroup;
 			children = (
-				75EDA36527DEFF8500D0985F /* Info.plist */,
-				75EDA36327DEFD8F00D0985F /* Chalkduster.ttf */,
-				75EADB1127CACCFA00D094D7 /* ios_photobaseApp.swift */,
-				75EADB1327CACCFA00D094D7 /* ContentView.swift */,
-				75891D1527DEFBFD00EB4F23 /* photobase */,
-				75EADB1527CACCFC00D094D7 /* Assets.xcassets */,
-				75EADB1727CACCFC00D094D7 /* Preview Content */,
+				7557484B27E27CE50050BB19 /* Photobase_IOSApp.swift */,
+				7557484D27E27CE50050BB19 /* ContentView.swift */,
+				7557484F27E27CE70050BB19 /* Assets.xcassets */,
+				7557485127E27CE70050BB19 /* Preview Content */,
 			);
-			path = "ios-photobase";
+			path = "Photobase-IOS";
 			sourceTree = "<group>";
 		};
-		75EADB1727CACCFC00D094D7 /* Preview Content */ = {
+		7557485127E27CE70050BB19 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				75EADB1827CACCFC00D094D7 /* Preview Assets.xcassets */,
+				7557485227E27CE70050BB19 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		75EADB2127CACCFC00D094D7 /* ios-photobaseTests */ = {
+		7557485B27E27CE70050BB19 /* Photobase-IOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				75EADB2227CACCFC00D094D7 /* ios_photobaseTests.swift */,
+				7557485C27E27CE70050BB19 /* Photobase_IOSTests.swift */,
 			);
-			path = "ios-photobaseTests";
+			path = "Photobase-IOSTests";
 			sourceTree = "<group>";
 		};
-		75EADB2B27CACCFC00D094D7 /* ios-photobaseUITests */ = {
+		7557486527E27CE70050BB19 /* Photobase-IOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				75EADB2C27CACCFC00D094D7 /* ios_photobaseUITests.swift */,
-				75EADB2E27CACCFC00D094D7 /* ios_photobaseUITestsLaunchTests.swift */,
+				7557486627E27CE70050BB19 /* Photobase_IOSUITests.swift */,
+				7557486827E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift */,
 			);
-			path = "ios-photobaseUITests";
+			path = "Photobase-IOSUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		75EADB0D27CACCF900D094D7 /* ios-photobase */ = {
+		7557484727E27CE50050BB19 /* Photobase-IOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75EADB3227CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobase" */;
+			buildConfigurationList = 7557486C27E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOS" */;
 			buildPhases = (
-				75EADB0A27CACCF900D094D7 /* Sources */,
-				75EADB0B27CACCF900D094D7 /* Frameworks */,
-				75EADB0C27CACCF900D094D7 /* Resources */,
+				7557484427E27CE50050BB19 /* Sources */,
+				7557484527E27CE50050BB19 /* Frameworks */,
+				7557484627E27CE50050BB19 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ios-photobase";
-			productName = "ios-photobase";
-			productReference = 75EADB0E27CACCFA00D094D7 /* ios-photobase.app */;
+			name = "Photobase-IOS";
+			productName = "Photobase-IOS";
+			productReference = 7557484827E27CE50050BB19 /* Photobase.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75EADB1D27CACCFC00D094D7 /* ios-photobaseTests */ = {
+		7557485727E27CE70050BB19 /* Photobase-IOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75EADB3527CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobaseTests" */;
+			buildConfigurationList = 7557486F27E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOSTests" */;
 			buildPhases = (
-				75EADB1A27CACCFC00D094D7 /* Sources */,
-				75EADB1B27CACCFC00D094D7 /* Frameworks */,
-				75EADB1C27CACCFC00D094D7 /* Resources */,
+				7557485427E27CE70050BB19 /* Sources */,
+				7557485527E27CE70050BB19 /* Frameworks */,
+				7557485627E27CE70050BB19 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				75EADB2027CACCFC00D094D7 /* PBXTargetDependency */,
+				7557485A27E27CE70050BB19 /* PBXTargetDependency */,
 			);
-			name = "ios-photobaseTests";
-			productName = "ios-photobaseTests";
-			productReference = 75EADB1E27CACCFC00D094D7 /* ios-photobaseTests.xctest */;
+			name = "Photobase-IOSTests";
+			productName = "Photobase-IOSTests";
+			productReference = 7557485827E27CE70050BB19 /* Photobase-IOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		75EADB2727CACCFC00D094D7 /* ios-photobaseUITests */ = {
+		7557486127E27CE70050BB19 /* Photobase-IOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75EADB3827CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobaseUITests" */;
+			buildConfigurationList = 7557487227E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOSUITests" */;
 			buildPhases = (
-				75EADB2427CACCFC00D094D7 /* Sources */,
-				75EADB2527CACCFC00D094D7 /* Frameworks */,
-				75EADB2627CACCFC00D094D7 /* Resources */,
+				7557485E27E27CE70050BB19 /* Sources */,
+				7557485F27E27CE70050BB19 /* Frameworks */,
+				7557486027E27CE70050BB19 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				75EADB2A27CACCFC00D094D7 /* PBXTargetDependency */,
+				7557486427E27CE70050BB19 /* PBXTargetDependency */,
 			);
-			name = "ios-photobaseUITests";
-			productName = "ios-photobaseUITests";
-			productReference = 75EADB2827CACCFC00D094D7 /* ios-photobaseUITests.xctest */;
+			name = "Photobase-IOSUITests";
+			productName = "Photobase-IOSUITests";
+			productReference = 7557486227E27CE70050BB19 /* Photobase-IOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		75EADB0627CACCF900D094D7 /* Project object */ = {
+		7557484027E27CE50050BB19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
-					75EADB0D27CACCF900D094D7 = {
+					7557484727E27CE50050BB19 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
-					75EADB1D27CACCFC00D094D7 = {
+					7557485727E27CE70050BB19 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 75EADB0D27CACCF900D094D7;
+						TestTargetID = 7557484727E27CE50050BB19;
 					};
-					75EADB2727CACCFC00D094D7 = {
+					7557486127E27CE70050BB19 = {
 						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 75EADB0D27CACCF900D094D7;
+						TestTargetID = 7557484727E27CE50050BB19;
 					};
 				};
 			};
-			buildConfigurationList = 75EADB0927CACCF900D094D7 /* Build configuration list for PBXProject "ios-photobase" */;
+			buildConfigurationList = 7557484327E27CE50050BB19 /* Build configuration list for PBXProject "Photobase-IOS" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -222,38 +214,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 75EADB0527CACCF900D094D7;
-			productRefGroup = 75EADB0F27CACCFA00D094D7 /* Products */;
+			mainGroup = 7557483F27E27CE50050BB19;
+			productRefGroup = 7557484927E27CE50050BB19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75EADB0D27CACCF900D094D7 /* ios-photobase */,
-				75EADB1D27CACCFC00D094D7 /* ios-photobaseTests */,
-				75EADB2727CACCFC00D094D7 /* ios-photobaseUITests */,
+				7557484727E27CE50050BB19 /* Photobase-IOS */,
+				7557485727E27CE70050BB19 /* Photobase-IOSTests */,
+				7557486127E27CE70050BB19 /* Photobase-IOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		75EADB0C27CACCF900D094D7 /* Resources */ = {
+		7557484627E27CE50050BB19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EADB1927CACCFC00D094D7 /* Preview Assets.xcassets in Resources */,
-				75EDA36427DEFD9000D0985F /* Chalkduster.ttf in Resources */,
-				75EADB1627CACCFC00D094D7 /* Assets.xcassets in Resources */,
-				75891D1627DEFBFD00EB4F23 /* photobase in Resources */,
+				7557485327E27CE70050BB19 /* Preview Assets.xcassets in Resources */,
+				7557485027E27CE70050BB19 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB1C27CACCFC00D094D7 /* Resources */ = {
+		7557485627E27CE70050BB19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB2627CACCFC00D094D7 /* Resources */ = {
+		7557486027E27CE70050BB19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -263,49 +253,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		75EADB0A27CACCF900D094D7 /* Sources */ = {
+		7557484427E27CE50050BB19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EADB1427CACCFA00D094D7 /* ContentView.swift in Sources */,
-				75EADB1227CACCFA00D094D7 /* ios_photobaseApp.swift in Sources */,
+				7557484E27E27CE50050BB19 /* ContentView.swift in Sources */,
+				7557484C27E27CE50050BB19 /* Photobase_IOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB1A27CACCFC00D094D7 /* Sources */ = {
+		7557485427E27CE70050BB19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EADB2327CACCFC00D094D7 /* ios_photobaseTests.swift in Sources */,
+				7557485D27E27CE70050BB19 /* Photobase_IOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75EADB2427CACCFC00D094D7 /* Sources */ = {
+		7557485E27E27CE70050BB19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EADB2F27CACCFC00D094D7 /* ios_photobaseUITestsLaunchTests.swift in Sources */,
-				75EADB2D27CACCFC00D094D7 /* ios_photobaseUITests.swift in Sources */,
+				7557486927E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift in Sources */,
+				7557486727E27CE70050BB19 /* Photobase_IOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		75EADB2027CACCFC00D094D7 /* PBXTargetDependency */ = {
+		7557485A27E27CE70050BB19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75EADB0D27CACCF900D094D7 /* ios-photobase */;
-			targetProxy = 75EADB1F27CACCFC00D094D7 /* PBXContainerItemProxy */;
+			target = 7557484727E27CE50050BB19 /* Photobase-IOS */;
+			targetProxy = 7557485927E27CE70050BB19 /* PBXContainerItemProxy */;
 		};
-		75EADB2A27CACCFC00D094D7 /* PBXTargetDependency */ = {
+		7557486427E27CE70050BB19 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 75EADB0D27CACCF900D094D7 /* ios-photobase */;
-			targetProxy = 75EADB2927CACCFC00D094D7 /* PBXContainerItemProxy */;
+			target = 7557484727E27CE50050BB19 /* Photobase-IOS */;
+			targetProxy = 7557486327E27CE70050BB19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		75EADB3027CACCFC00D094D7 /* Debug */ = {
+		7557486A27E27CE70050BB19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -366,7 +356,7 @@
 			};
 			name = Debug;
 		};
-		75EADB3127CACCFC00D094D7 /* Release */ = {
+		7557486B27E27CE70050BB19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -421,18 +411,17 @@
 			};
 			name = Release;
 		};
-		75EADB3327CACCFC00D094D7 /* Debug */ = {
+		7557486D27E27CE70050BB19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ios-photobase/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Photobase-IOS/Preview Content\"";
 				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios-photobase/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,26 +432,25 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobase";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOS";
+				PRODUCT_NAME = Photobase;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		75EADB3427CACCFC00D094D7 /* Release */ = {
+		7557486E27E27CE70050BB19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ios-photobase/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Photobase-IOS/Preview Content\"";
 				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ios-photobase/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -473,126 +461,130 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobase";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOS";
+				PRODUCT_NAME = Photobase;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		75EADB3627CACCFC00D094D7 /* Debug */ = {
+		7557487027E27CE70050BB19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobaseTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-photobase.app/ios-photobase";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photobase-IOS.app/Photobase-IOS";
 			};
 			name = Debug;
 		};
-		75EADB3727CACCFC00D094D7 /* Release */ = {
+		7557487127E27CE70050BB19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobaseTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-photobase.app/ios-photobase";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Photobase-IOS.app/Photobase-IOS";
 			};
 			name = Release;
 		};
-		75EADB3927CACCFC00D094D7 /* Debug */ = {
+		7557487327E27CE70050BB19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobaseUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "ios-photobase";
+				TEST_TARGET_NAME = "Photobase-IOS";
 			};
 			name = Debug;
 		};
-		75EADB3A27CACCFC00D094D7 /* Release */ = {
+		7557487427E27CE70050BB19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.ios-photobaseUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "micahperez.Photobase-IOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "ios-photobase";
+				TEST_TARGET_NAME = "Photobase-IOS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		75EADB0927CACCF900D094D7 /* Build configuration list for PBXProject "ios-photobase" */ = {
+		7557484327E27CE50050BB19 /* Build configuration list for PBXProject "Photobase-IOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75EADB3027CACCFC00D094D7 /* Debug */,
-				75EADB3127CACCFC00D094D7 /* Release */,
+				7557486A27E27CE70050BB19 /* Debug */,
+				7557486B27E27CE70050BB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75EADB3227CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobase" */ = {
+		7557486C27E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75EADB3327CACCFC00D094D7 /* Debug */,
-				75EADB3427CACCFC00D094D7 /* Release */,
+				7557486D27E27CE70050BB19 /* Debug */,
+				7557486E27E27CE70050BB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75EADB3527CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobaseTests" */ = {
+		7557486F27E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75EADB3627CACCFC00D094D7 /* Debug */,
-				75EADB3727CACCFC00D094D7 /* Release */,
+				7557487027E27CE70050BB19 /* Debug */,
+				7557487127E27CE70050BB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75EADB3827CACCFC00D094D7 /* Build configuration list for PBXNativeTarget "ios-photobaseUITests" */ = {
+		7557487227E27CE70050BB19 /* Build configuration list for PBXNativeTarget "Photobase-IOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				75EADB3927CACCFC00D094D7 /* Debug */,
-				75EADB3A27CACCFC00D094D7 /* Release */,
+				7557487327E27CE70050BB19 /* Debug */,
+				7557487427E27CE70050BB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 75EADB0627CACCF900D094D7 /* Project object */;
+	rootObject = 7557484027E27CE50050BB19 /* Project object */;
 }

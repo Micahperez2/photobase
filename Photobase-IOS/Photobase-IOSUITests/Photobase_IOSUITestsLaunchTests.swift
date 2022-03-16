@@ -1,13 +1,13 @@
 //
-//  ios_photobaseUITestsLaunchTests.swift
-//  ios-photobaseUITests
+//  Photobase_IOSUITestsLaunchTests.swift
+//  Photobase-IOSUITests
 //
-//  Created by Micah Perez on 2/26/22.
+//  Created by Micah Perez on 3/16/22.
 //
 
 import XCTest
 
-class ios_photobaseUITestsLaunchTests: XCTestCase {
+class Photobase_IOSUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

@@ -25,16 +25,23 @@ struct ContentView: View {
                     .frame(width: 350, height: 250, alignment: .top)
                 TextField("Enter your Passcode", text: $name)
                     .textFieldStyle(.roundedBorder)
-                    .padding(.vertical, 25)
+                    .padding(.vertical, 75)
                     .padding(.horizontal, 40)
                     .foregroundColor(photoPurple)
                     .onSubmit {
                         print(validateFunction(domain: ("https://" + name + ".loca.lt")))
                     }
-                Text(validateFunction(domain: ("https://" + name + ".loca.lt")))
-                    .padding()
-                    .foregroundColor(textColor(input: ("https://" + name + ".loca.lt")))
-                Button("Open Camera") {
+                //Text(validateFunction(domain: ("https://" + name + ".loca.lt")))
+                //   .padding()
+                //  .foregroundColor(textColor(input: ("https://" + name + ".loca.lt")))
+                Button {
+                    print("Open Camera")
+                } label: {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(textColor(input: ("https://" + name + ".loca.lt")))
+                        .frame(width: 250, height: 200, alignment: .bottom)
                 }
                 .padding()
             }
