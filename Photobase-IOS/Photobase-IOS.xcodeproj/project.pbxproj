@@ -14,6 +14,7 @@
 		7557485D27E27CE70050BB19 /* Photobase_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557485C27E27CE70050BB19 /* Photobase_IOSTests.swift */; };
 		7557486727E27CE70050BB19 /* Photobase_IOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557486627E27CE70050BB19 /* Photobase_IOSUITests.swift */; };
 		7557486927E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557486827E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift */; };
+		75988EF027E2E66B006F76C9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75988EEF27E2E66B006F76C9 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,8 @@
 		7557486227E27CE70050BB19 /* Photobase-IOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photobase-IOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7557486627E27CE70050BB19 /* Photobase_IOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSUITests.swift; sourceTree = "<group>"; };
 		7557486827E27CE70050BB19 /* Photobase_IOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photobase_IOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		75988EEF27E2E66B006F76C9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		75988EF327E2F5D9006F76C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +97,12 @@
 		7557484A27E27CE50050BB19 /* Photobase-IOS */ = {
 			isa = PBXGroup;
 			children = (
+				75988EF327E2F5D9006F76C9 /* Info.plist */,
 				7557484B27E27CE50050BB19 /* Photobase_IOSApp.swift */,
 				7557484D27E27CE50050BB19 /* ContentView.swift */,
 				7557484F27E27CE70050BB19 /* Assets.xcassets */,
 				7557485127E27CE70050BB19 /* Preview Content */,
+				75988EEF27E2E66B006F76C9 /* ImagePicker.swift */,
 			);
 			path = "Photobase-IOS";
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75988EF027E2E66B006F76C9 /* ImagePicker.swift in Sources */,
 				7557484E27E27CE50050BB19 /* ContentView.swift in Sources */,
 				7557484C27E27CE50050BB19 /* Photobase_IOSApp.swift in Sources */,
 			);
@@ -422,6 +428,8 @@
 				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Photobase-IOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the usage of camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -451,6 +459,8 @@
 				DEVELOPMENT_TEAM = R7L4D2MTLS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Photobase-IOS/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires the usage of camera.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -10,11 +10,19 @@ import SwiftUI
 struct ContentView: View {
     @State private var name: String = ""
     @State private var isvalidURL: Bool = false
+    
+    @State private var showSheet: Bool = false
+    @State private var showImagePicker: Bool = false
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
+    
+    @State private var image: UIImage?
+    
+    
     let offBlack = Color(red: 0.11, green: 0.11, blue: 0.12)
     let photoPurple = Color(red: 0.729, green: 0.333, blue: 0.827)
     
     var body: some View {
-            ZStack{
+        ZStack {
                 offBlack
                 .ignoresSafeArea(.all)
                 
@@ -22,7 +30,12 @@ struct ContentView: View {
                 Text("Photobase")
                     .font(.custom("Chalkduster", size: 60))
                     .foregroundColor(photoPurple)
-                    .frame(width: 350, height: 250, alignment: .top)
+                    .frame(width: 350, height: 200, alignment: .center)
+                    
+//                Image(uiImage: image ?? UIImage(named: "placeholder")!)
+//                    .resizable()
+//                    .frame(width: 50, height: 50)
+                    
                 TextField("Enter your Passcode", text: $name)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 75)
@@ -31,11 +44,10 @@ struct ContentView: View {
                     .onSubmit {
                         print(validateFunction(domain: ("https://" + name + ".loca.lt")))
                     }
-                //Text(validateFunction(domain: ("https://" + name + ".loca.lt")))
-                //   .padding()
-                //  .foregroundColor(textColor(input: ("https://" + name + ".loca.lt")))
+                    
                 Button {
                     print("Open Camera")
+                    self.showSheet = true
                 } label: {
                     Image(systemName: "camera")
                         .resizable()
@@ -44,9 +56,27 @@ struct ContentView: View {
                         .frame(width: 250, height: 200, alignment: .bottom)
                 }
                 .padding()
+                .actionSheet(isPresented: $showSheet) {
+                      ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
+                          .default(Text("Photo Library")) {
+                              self.showImagePicker = true
+                              self.sourceType = .photoLibrary
+                          },
+                          .default(Text("Camera")) {
+                              self.showImagePicker = true
+                              self.sourceType = .camera
+                          },
+                          .cancel()
+                      ])
+              }
             }
-        }
+          
+                    
+            }.sheet(isPresented: $showImagePicker) {
+            ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType)
+            }
     }
+    
     func validateFunction(domain: String) -> String {
         validURL(input: domain)
         if (isvalidURL) {
@@ -102,3 +132,19 @@ extension URL {
         }.resume()
     }
 }
+
+class ViewController: UIViewController,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate
+    {
+    @IBAction func openCameraButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+}
+
