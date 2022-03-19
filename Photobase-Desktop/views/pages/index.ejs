@@ -15,9 +15,12 @@
     <h4 style="color: white; padding-top: 20px;" class="text-center">Most Recent Photo: </h4>
     <p><%= tagline %></p>
 
+    <img src="file.png" alt="Most Recent Picture" width="500px">
+
     <ul style="color: white" class="center">
       <% photos.forEach(function(photo) { %>
         <li>
+          <img> <%= photo.photodata %> </img>
           <%= photo.name %>
           taken at <%= photo.time %>,
           at <%= photo.location %>

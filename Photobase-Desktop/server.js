@@ -1,4 +1,6 @@
 var express = require("express");
+var multer = require("multer");
+const path = require('path');
 var app = express();
 //const ngrok = require('ngrok');
 var localtunnel = require("localtunnel");
@@ -12,6 +14,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 var photos = [];
 var online_url = "";
+var most_recent_photo = "";
 
 // use res.render to load up an ejs view file
 // index page
@@ -34,13 +37,74 @@ app.get("/", (req, res) => {
   });
 });
 
-app.post("/post-test", (req, res) => {
-  console.log("Got body:", req.body);
-  //res.sendStatus(200);
-  //var feeds = req.body;
-  photos.push(req.body);
-  res.sendStatus(200);
+// app.post("/post-test", (req, res) => {
+//   console.log("Got body:", req.body);
+//   //res.sendStatus(200);
+//   //var feeds = req.body;
+//   photos.push(req.body);
+//   res.sendStatus(200);
+// });
+
+const handleError = (err, res) => {
+  res
+    .status(500)
+    .contentType("text/plain")
+    .end("Oops! Something went wrong!");
+};
+
+
+//Configuration for Multer
+const multerStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "/Users/micah/Desktop/photobase/Photobase-Desktop");
+  },
+  filename: (req, file, cb) => {
+    const ext = file.mimetype.split("/")[1];
+    cb(null, `public/admin-${file.fieldname}-${Date.now()}.${ext}`);
+  },
 });
+
+
+const upload = multer({
+  storage: multerStorage,
+  //dest: "/Users/micah/Desktop/photobase/Photobase-Desktop/uploads/",
+  //filename: 
+  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+});
+
+
+app.post(
+  "/post-test",
+  upload.single("photodata" /* name attribute of <file> element in your form */),
+  (req, res) => {
+    //const tempPath = req.file.path;
+    //console.log(req.file.filename);
+    most_recent_photo = req.file.filename;
+    //const targetPath = path.join(__dirname, "/Users/micah/Desktop/photobase/Photobase-Desktop/uploads");
+    //const targetPath = path.join("/Users/micah/Desktop/photobase/Photobase-Desktop/uploads", req.file.originalname);
+
+    // if (path.extname(req.file.originalname).toLowerCase() === ".png") {
+      // fs.rename(tempPath, targetPath, err => {
+      //   if (err) return handleError(err, res);
+
+      //   res
+      //     .status(200)
+      //     .contentType("text/plain")
+      //     .end("File uploaded!");
+      // });
+    // } else {
+    //   fs.unlink(tempPath, err => {
+    //     if (err) return handleError(err, res);
+
+    //     res
+    //       .status(403)
+    //       .contentType("text/plain")
+    //       .end("Only .png files are allowed!");
+    //   });
+    // }
+  }
+);
+
 
 // about page
 app.get("/about", function (req, res) {
