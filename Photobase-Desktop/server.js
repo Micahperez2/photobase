@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
     photos: photos,
     tagline: tagline,
     online_url: online_url,
+    most_recent_photo:most_recent_photo,
   });
 });
 
@@ -56,20 +57,28 @@ const handleError = (err, res) => {
 //Configuration for Multer
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/Users/micah/Desktop/photobase/Photobase-Desktop");
+    cb(null, "/Users/micah/Desktop/photobase/Photobase-Desktop/public");
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
-    cb(null, `public/admin-${file.fieldname}-${Date.now()}.${ext}`);
+    //cb(null, `admin-${file.fieldname}-${Date.now()}.${ext}`);
+    cb(null, `most_recent.${ext}`);
   },
 });
+
+// Multer Filter
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.split("/")[1] === "jpg") {
+    cb(null, true);
+  } else {
+    cb(new Error("Not a JPG File!!"), false);
+  }
+};
 
 
 const upload = multer({
   storage: multerStorage,
-  //dest: "/Users/micah/Desktop/photobase/Photobase-Desktop/uploads/",
-  //filename: 
-  // you might also want to set some limits: https://github.com/expressjs/multer#limits
+  //fileFilter: multerFilter,
 });
 
 
@@ -78,7 +87,7 @@ app.post(
   upload.single("photodata" /* name attribute of <file> element in your form */),
   (req, res) => {
     //const tempPath = req.file.path;
-    //console.log(req.file.filename);
+    console.log(req.file.filename);
     most_recent_photo = req.file.filename;
     //const targetPath = path.join(__dirname, "/Users/micah/Desktop/photobase/Photobase-Desktop/uploads");
     //const targetPath = path.join("/Users/micah/Desktop/photobase/Photobase-Desktop/uploads", req.file.originalname);

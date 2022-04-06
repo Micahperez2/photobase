@@ -30,27 +30,29 @@ async function saveFile() {
   );
 }
 
-// function createWindow () {
-//   const mainWindow = new BrowserWindow({
-//     webPreferences: {
-//       preload: path.join(__dirname, 'preload.js'),
-//       nodeIntegration: true,
-//     }
-//   });
-//   mainWindow.loadURL("http://localhost:3000");
-//   mainWindow.on("closed", function () {
-//    mainWindow = null;
-//  });
-// }
+
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 750,
+    icon: path.join(__dirname, 'public/test.ico'),
+    title: 'Photobase',
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     },
   });
+
+  if (process.platform === 'darwin') {
+        app.dock.setIcon(path.join(__dirname, 'public/Photobase-Icon.png'));
+  }
+  
+
+    setTimeout(() => {
+        app.dock.bounce();
+    }, 5000);
 
   mainWindow.loadURL("http://localhost:8080");
 }
@@ -65,11 +67,5 @@ app.on("resize", function (e, x, y) {
 app.on("window-all-closed", function () {
   if (process.platform !== "darwin") {
     app.quit();
-  }
-});
-
-app.on("activate", function () {
-  if (mainWindow === null) {
-    createWindow();
   }
 });

@@ -13,25 +13,26 @@
 <main>
   
     <h4 style="color: white; padding-top: 20px;" class="text-center">Most Recent Photo: </h4>
-    <p><%= tagline %></p>
+    <!-- <p><%= tagline %></p> -->
+    <div class="space"></div>
 
-    <img src="file.png" alt="Most Recent Picture" width="500px">
-
+    <img src=<%= most_recent_photo %> alt="Most Recent Picture" class="text-center" onerror="this.style.display='none'" height=420> 
+<!-- 
     <ul style="color: white" class="center">
       <% photos.forEach(function(photo) { %>
         <li>
-          <img> <%= photo.photodata %> </img>
           <%= photo.name %>
           taken at <%= photo.time %>,
           at <%= photo.location %>
         </li>
       <% }); %>
     </ul>
+     -->
 </main>
 
-<div class="wrapper">
-  <div class="push"></div>
-</div>
+
+<div class="space"></div>
+
 <p style="color: white" class="text-center" > Your Passcode: <%= online_url %></p>
 <footer>
   <%- include('../partials/footer'); %>

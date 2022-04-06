@@ -34,6 +34,21 @@ html {
   /* But also accounting for potential margin-bottom of last child */
   margin-bottom: -75px;
 }
-.footer, .push {
-  height: 50px;
+.footer {
+  height: 10px;
 }
+
+.space  {
+  height: 10px;
+}
+
+img {
+
+  display: block;
+
+  
+  margin-left: auto;
+  
+  margin-right: auto;
+  
+  }
