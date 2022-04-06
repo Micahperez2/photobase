@@ -1,6 +1,6 @@
 var express = require("express");
 var multer = require("multer");
-const path = require('path');
+const path = require("path");
 var app = express();
 //const ngrok = require('ngrok');
 var localtunnel = require("localtunnel");
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
     photos: photos,
     tagline: tagline,
     online_url: online_url,
-    most_recent_photo:most_recent_photo,
+    most_recent_photo: most_recent_photo,
   });
 });
 
@@ -47,12 +47,8 @@ app.get("/", (req, res) => {
 // });
 
 const handleError = (err, res) => {
-  res
-    .status(500)
-    .contentType("text/plain")
-    .end("Oops! Something went wrong!");
+  res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
 };
-
 
 //Configuration for Multer
 const multerStorage = multer.diskStorage({
@@ -75,16 +71,16 @@ const multerFilter = (req, file, cb) => {
   }
 };
 
-
 const upload = multer({
   storage: multerStorage,
   //fileFilter: multerFilter,
 });
 
-
 app.post(
   "/post-test",
-  upload.single("photodata" /* name attribute of <file> element in your form */),
+  upload.single(
+    "photodata" /* name attribute of <file> element in your form */
+  ),
   (req, res) => {
     //const tempPath = req.file.path;
     console.log(req.file.filename);
@@ -93,14 +89,14 @@ app.post(
     //const targetPath = path.join("/Users/micah/Desktop/photobase/Photobase-Desktop/uploads", req.file.originalname);
 
     // if (path.extname(req.file.originalname).toLowerCase() === ".png") {
-      // fs.rename(tempPath, targetPath, err => {
-      //   if (err) return handleError(err, res);
+    // fs.rename(tempPath, targetPath, err => {
+    //   if (err) return handleError(err, res);
 
-      //   res
-      //     .status(200)
-      //     .contentType("text/plain")
-      //     .end("File uploaded!");
-      // });
+    //   res
+    //     .status(200)
+    //     .contentType("text/plain")
+    //     .end("File uploaded!");
+    // });
     // } else {
     //   fs.unlink(tempPath, err => {
     //     if (err) return handleError(err, res);
@@ -113,7 +109,6 @@ app.post(
     // }
   }
 );
-
 
 // about page
 app.get("/about", function (req, res) {

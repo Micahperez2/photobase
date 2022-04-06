@@ -30,14 +30,12 @@ async function saveFile() {
   );
 }
 
-
-
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 750,
-    icon: path.join(__dirname, 'public/test.ico'),
-    title: 'Photobase',
+    icon: path.join(__dirname, "public/test.ico"),
+    title: "Photobase",
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
@@ -45,14 +43,13 @@ function createWindow() {
     },
   });
 
-  if (process.platform === 'darwin') {
-        app.dock.setIcon(path.join(__dirname, 'public/Photobase-Icon.png'));
+  if (process.platform === "darwin") {
+    app.dock.setIcon(path.join(__dirname, "public/Photobase-Icon.png"));
   }
-  
 
-    setTimeout(() => {
-        app.dock.bounce();
-    }, 5000);
+  setTimeout(() => {
+    app.dock.bounce();
+  }, 5000);
 
   mainWindow.loadURL("http://localhost:8080");
 }
