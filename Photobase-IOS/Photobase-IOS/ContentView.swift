@@ -73,7 +73,7 @@ struct ContentView: View {
           
                     
             }.sheet(isPresented: $showImagePicker) {
-            ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType)
+                ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType, iname: self.$name)
             }
     }
     
