@@ -1,4 +1,5 @@
 # Photobase
+
 ## _Stop Worrying About Image Storage or Cloud Fees_
 
 [![Actions Status](https://github.com/Micahperez2/photobase/actions/workflows/format.yml/badge.svg)](https://github.com/Micahperez2/photobase/actions)
@@ -11,11 +12,10 @@ Photobase is application that allows users to dynamically take photos on an iOS 
 
 - Download both the Photobase Desktop and iOS Application
 - Take photos via the iOS application
-    - If currently connected to Desktop server via passcode, photos will send as they are taken and will not be stored in iOS storage
-    - If not connected, photos will be cached in application until connected to a desktop server
+  - If currently connected to Desktop server via passcode, photos will send as they are taken and will not be stored in iOS storage
+  - If not connected, photos will be cached in application until connected to a desktop server
 - When a photo reaches the server for the first time, a new desktop folder will be created named "Photobase Photos"
 - Images will be saved to this folder based off when they were taken on the mobile device
-
 
 ## Tech
 
