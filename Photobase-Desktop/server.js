@@ -1,9 +1,10 @@
+var localtunnel = require("localtunnel");
 var express = require("express");
 var multer = require("multer");
 const path = require("path");
+const fs = require('fs');
+const os = require('os');
 var app = express();
-//const ngrok = require('ngrok');
-var localtunnel = require("localtunnel");
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -16,20 +17,15 @@ var photos = [];
 var online_url = "";
 var most_recent_photo = "";
 
+//Get desktop path and use it for photos directory path
+const homeDir = require('os').homedir();
+const photobaseDir = `${homeDir}/Desktop/Photobase Photos`;
+
 // use res.render to load up an ejs view file
-// index page
-
 app.get("/", (req, res) => {
-  //   var photos = [
-  //     { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-  //     { name: 'Tux', organization: "Linux", birth_year: 1996},
-  //     { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-  //   ];
-  //var feed = {name: 'Sammy', organization: "DigitalOcean", birth_year: 2012}
-  //photos.push(feed);
 
+  //Render the most recent photo to the current screen
   var tagline = "Photos";
-
   res.render("pages/index", {
     photos: photos,
     tagline: tagline,
@@ -38,27 +34,26 @@ app.get("/", (req, res) => {
   });
 });
 
-// app.post("/post-test", (req, res) => {
-//   console.log("Got body:", req.body);
-//   //res.sendStatus(200);
-//   //var feeds = req.body;
-//   photos.push(req.body);
-//   res.sendStatus(200);
-// });
-
 const handleError = (err, res) => {
   res.status(500).contentType("text/plain").end("Oops! Something went wrong!");
 };
 
-//Configuration for Multer
+//Configuration for Multer - unused
 const multerStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "/Users/micah/Desktop/photobase/Photobase-Desktop/public");
+
+    try {
+      if (!fs.existsSync(photobaseDir)) {
+        fs.mkdirSync(photobaseDir);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+    cb(null, photobaseDir);
   },
   filename: (req, file, cb) => {
-    const ext = file.mimetype.split("/")[1];
-    //cb(null, `admin-${file.fieldname}-${Date.now()}.${ext}`);
-    cb(null, `most_recent.${ext}`);
+    cb(null, `most_recent.jpg`);
+    cb(null, `${file.originalname}.jpg`);
   },
 });
 
@@ -82,31 +77,18 @@ app.post(
     "photodata" /* name attribute of <file> element in your form */
   ),
   (req, res) => {
+
+    fs.copyFile(`${homeDir}/Desktop/Photobase Photos/most_recent.jpg`, 'public/most_recent.jpg', (err) => {
+      if (err) throw err;
+      console.log('source.txt was copied to destination.txt');
+    });
+
     //const tempPath = req.file.path;
     console.log(req.file.filename);
-    most_recent_photo = req.file.filename;
-    //const targetPath = path.join(__dirname, "/Users/micah/Desktop/photobase/Photobase-Desktop/uploads");
-    //const targetPath = path.join("/Users/micah/Desktop/photobase/Photobase-Desktop/uploads", req.file.originalname);
-
-    // if (path.extname(req.file.originalname).toLowerCase() === ".png") {
-    // fs.rename(tempPath, targetPath, err => {
-    //   if (err) return handleError(err, res);
-
-    //   res
-    //     .status(200)
-    //     .contentType("text/plain")
-    //     .end("File uploaded!");
-    // });
-    // } else {
-    //   fs.unlink(tempPath, err => {
-    //     if (err) return handleError(err, res);
-
-    //     res
-    //       .status(403)
-    //       .contentType("text/plain")
-    //       .end("Only .png files are allowed!");
-    //   });
-    // }
+    most_recent_photo = "most_recent.jpg";
+    
+    //most_recent_photo = path.join(`${homeDir}/Desktop/Photobase%20Photos`, req.file.filename);
+    //console.log(most_recent_photo);
   }
 );
 
@@ -115,15 +97,12 @@ app.get("/about", function (req, res) {
   res.render("pages/about");
 });
 
-//app.listen(8080);
-//console.log('Server is listening on port 8080');
-
 app.listen(8080, "0.0.0.0");
 //  console.log('Server is listening on port 8080')
 
 (async () => {
   const tunnel = await localtunnel({ port: 8080 });
-  //With Custom Subdomain
+  //Example with Custom Subdomain
   //const tunnel = await localtunnel({ port: 8080, subdomain: "heyworld" });
   console.log(tunnel.url);
   online_url = tunnel.url.replace("https://", "");

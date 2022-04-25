@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 const path = require("path");
 const fs = require("fs");
-//const server = require("./app");
 const server = require("./server");
 
 async function handleFileOpen() {
@@ -30,10 +29,15 @@ async function saveFile() {
   );
 }
 
+//Create app window with min/max size
 function createWindow() {
   const mainWindow = new BrowserWindow({
     width: 600,
     height: 750,
+    maxWidth: 875,
+    maxHeight: 875,
+    minHeight: 600,
+    minWidth: 350,
     icon: path.join(__dirname, "public/test.ico"),
     title: "Photobase",
     webPreferences: {
@@ -54,7 +58,6 @@ function createWindow() {
   mainWindow.loadURL("http://localhost:8080");
 }
 
-//app.on("ready", createWindow);
 app.whenReady().then(createWindow);
 
 app.on("resize", function (e, x, y) {
