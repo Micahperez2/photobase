@@ -5,13 +5,14 @@ on: push
 jobs:
   release:
     runs-on: ${{ matrix.os }}
+    env:
+    	working-directory: ./Photobase-Desktop
 
     strategy:
       matrix:
         os: [macos-latest]
         package_manager: [npm]
-	package_root: ["./Photobase-Desktop/"]
-
+	
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
@@ -23,7 +24,6 @@ jobs:
 
       - name: Install test app dependencies
         run: |
-          cd ${{ matrix.package_root }}
           ${{ matrix.package_manager }} install
 
       - name: Build/release Electron app
