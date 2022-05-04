@@ -8,6 +8,10 @@
   "scripts": {
     "start": "electron ."
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Micahperez2/photobase.git"
+  },
   "devDependencies": {
     "electron": "^17.0.1",
     "electron-builder": "^23.0.3"
