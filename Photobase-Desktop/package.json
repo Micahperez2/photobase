@@ -6,14 +6,16 @@
   "author": "Micah Perez",
   "license": "MIT",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron ."
   },
   "devDependencies": {
-    "electron": "^17.0.1"
+    "electron": "^17.0.1",
+    "electron-builder": "^23.0.3"
   },
   "dependencies": {
     "ejs": "^3.1.6",
     "ejs-electron": "^2.1.1",
+    "electron-builder": "^23.0.3",
     "express": "^4.17.3",
     "g": "^2.0.1",
     "localtunnel": "^2.0.2",
