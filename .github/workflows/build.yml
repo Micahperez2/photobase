@@ -6,8 +6,8 @@ jobs:
   release:
     runs-on: ${{ matrix.os }}
     env:
-    	working-directory: ./Photobase-Desktop
-
+      working-directory: ./Photobase-Desktop
+      
     strategy:
       matrix:
         os: [macos-latest]
