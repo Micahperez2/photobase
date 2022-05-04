@@ -1,3 +1,4 @@
+var randomWords = require('random-words');
 var localtunnel = require("localtunnel");
 var express = require("express");
 var multer = require("multer");
@@ -101,9 +102,9 @@ app.listen(8080, "0.0.0.0");
 //  console.log('Server is listening on port 8080')
 
 (async () => {
-  const tunnel = await localtunnel({ port: 8080 });
+  var rwlist = randomWords({exactly: 2, maxLength: 4})
   //Example with Custom Subdomain
-  //const tunnel = await localtunnel({ port: 8080, subdomain: "heyworld" });
+  const tunnel = await localtunnel({ port: 8080, subdomain: `${rwlist[0]}-${rwlist[1]}` });
   console.log(tunnel.url);
   online_url = tunnel.url.replace("https://", "");
   online_url = online_url.replace(".loca.lt", "");
