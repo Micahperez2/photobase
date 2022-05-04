@@ -5,8 +5,9 @@ on: push
 jobs:
   release:
     runs-on: ${{ matrix.os }}
-    env:
-      working-directory: ./Photobase-Desktop
+    defaults:
+      run:
+        working-directory: ./Photobase-Desktop
       
     strategy:
       matrix:
