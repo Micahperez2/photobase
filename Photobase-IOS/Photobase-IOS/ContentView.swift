@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @State private var showSheet: Bool = false
     @State private var showImagePicker: Bool = false
+    @State private var domainOnline: Bool = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     
     @State private var image: UIImage?
@@ -44,7 +45,9 @@ struct ContentView: View {
                     .onSubmit {
                         print(validateFunction(domain: ("https://" + name + ".loca.lt")))
                     }
-                    
+                    .autocapitalization(.none)
+
+        if(validateFunction(domain: ("https://" + name + ".loca.lt")) == "Domain Online"){
                 Button {
                     print("Open Camera")
                     self.showSheet = true
@@ -52,34 +55,77 @@ struct ContentView: View {
                     Image(systemName: "camera")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(textColor(input: ("https://" + name + ".loca.lt")))
+                        .foregroundColor(Color.green)
                         .frame(width: 250, height: 200, alignment: .bottom)
                 }
                 .padding()
                 .actionSheet(isPresented: $showSheet) {
-                      ActionSheet(title: Text("Select Photo"), message: Text("Choose"), buttons: [
-                          .default(Text("Photo Library")) {
-                              self.showImagePicker = true
-                              self.sourceType = .photoLibrary
-                          },
+                      ActionSheet(title: Text("Take a Photo or Send Existing Photos"), buttons: [
                           .default(Text("Camera")) {
                               self.showImagePicker = true
+                              self.domainOnline = true
                               self.sourceType = .camera
                           },
-                          .cancel()
+                        .default(Text("Send Photos")) {
+                            sendSavedImages(urlName: ("https://" + name + ".loca.lt/post-test"))
+                        },
+                        .cancel()
                       ])
               }
             }
+            else{
+                    Button {
+                        print("Open Camera")
+                        self.showSheet = true
+                    } label: {
+                        Image(systemName: "camera")
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(Color.red)
+                            .frame(width: 250, height: 200, alignment: .bottom)
+                    }
+                    .padding()
+                    .actionSheet(isPresented: $showSheet) {
+                        ActionSheet(title: Text("Take a Photo to Send Later"), buttons: [
+                              .default(Text("Camera")) {
+                                  self.showImagePicker = true
+                                  self.domainOnline = false
+                                  self.sourceType = .camera
+                              },
+                              .cancel()
+                          ])
+                  }
+                }
+            }
           
-                    
-            }.sheet(isPresented: $showImagePicker) {
-                ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType, iname: self.$name)
+            }//.sheet(isPresented: $showImagePicker) {
+            .fullScreenCover(isPresented: $showImagePicker) {
+                ImagePicker(image: self.$image, isShown: self.$showImagePicker, sourceType: self.sourceType, iname: self.$name, domainOnline: $domainOnline)
+                .edgesIgnoringSafeArea(.all)
             }
     }
     
     func validateFunction(domain: String) -> String {
+        //Create variables to specify letters or numbers
+        let letters = CharacterSet.letters
+        //let digits = CharacterSet.decimalDigits
+        
+        var correct_format = true
+        
+        //if last char is a character return true, else return false
+        for uni in domain[(domain.count-9)].unicodeScalars {
+            if letters.contains(uni){
+                correct_format = true
+                print("Format is Correct")
+            }
+            else {
+                correct_format = false
+                print("Format is not Correct")
+            }
+        }
+
         validURL(input: domain)
-        if (isvalidURL) {
+        if (isvalidURL && correct_format) {
             return "Domain Online"
         }
         else {
@@ -110,6 +156,65 @@ struct ContentView: View {
             }
         }
     }
+    
+    func sendSavedImages(urlName: String) -> Void {
+        //@State var curimage: UIImage
+        let docsDir = FileManager.default.temporaryDirectory.appendingPathComponent("photobase").path
+        let localFileManager = FileManager()
+        
+        let url = URL(string: urlName)
+        print(urlName)
+        
+        // generate boundary string using a unique per-app string
+        let boundary = UUID().uuidString
+        let session = URLSession.shared
+    
+        
+        // Set the URLRequest to POST and to the specified URL
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.httpMethod = "POST"
+        
+        // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
+        // And the boundary is also set here
+        urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+
+        let dirEnum = localFileManager.enumerator(atPath: docsDir)
+
+
+        while let file = dirEnum?.nextObject() as? String {
+                var data = Data()
+                let path = docsDir + "/" + file
+                guard let curimage = UIImage(contentsOfFile: path) else {
+                    print("No Photo Found")
+                    return
+                }
+                
+                data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
+                data.append("Content-Disposition: form-data; name=photodata; filename=photodata".data(using: .utf8)!)
+                data.append("Content-Type: image/\(file)\r\n\r\n".data(using: .utf8)!)
+                data.append(curimage.jpegData(compressionQuality: 0.1)!)
+                data.append("\r\n--\(boundary)--\r\n".data(using: .utf8)!)
+                
+                // Send a POST request to the URL, with the data we created earlier
+                session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
+                    if error == nil {
+                        let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
+                        if let json = jsonData as? [String: Any] {
+                            print(json)
+                        }
+                    }
+                }).resume()
+                
+                let url_path = URL(fileURLWithPath: path)
+                
+                do {
+                    try FileManager.default.removeItem(at: url_path)
+                } catch let error {
+                    print("Error deleting image. \(error)")
+                }
+                print(file + " has been sent!")
+        }
+    }
 }
 
 
@@ -130,6 +235,12 @@ extension URL {
         URLSession.shared.dataTask(with: request) { _, response, _ in
             completion((response as? HTTPURLResponse)?.statusCode == 200)
         }.resume()
+    }
+}
+
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
     }
 }
 
