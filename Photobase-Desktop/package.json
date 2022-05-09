@@ -5,8 +5,17 @@
   "main": "main.js",
   "author": "Micah Perez",
   "license": "MIT",
+  "build": {
+    "appId": "com.photobase.quickstart",
+    "mac": {
+      "category": "your.app.category.type",
+      "icon": "public/Photobase-Icon-512.jpg"
+    }
+  },  
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
