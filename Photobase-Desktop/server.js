@@ -16,7 +16,6 @@ app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-
 var photos = [];
 var online_url = "";
 var most_recent_photo = "";
@@ -28,7 +27,6 @@ const photobaseDir = `${homeDir}/Desktop/Photobase-Photos`;
 
 // On default path
 app.get("/", (req, res) => {
-
   //Render the most recent photo to the current screen
   var tagline = "Photos";
   res.render("pages/index", {
@@ -84,14 +82,16 @@ app.post(
   (req, res) => {
     console.log(most_recent_photo);
     most_recent_photo = "";
-    most_recent_photo = "atom://"+`${homeDir}/Desktop/Photobase-Photos/`+ `${most_recent_photo_name}`;
+    most_recent_photo =
+      "atom://" +
+      `${homeDir}/Desktop/Photobase-Photos/` +
+      `${most_recent_photo_name}`;
     console.log(most_recent_photo);
 
     //Redirect back home
-    res.redirect('/');
+    res.redirect("/");
   }
 );
-
 
 // about page
 app.get("/about", function (req, res) {
@@ -112,6 +112,4 @@ app.listen(8080, "0.0.0.0");
   online_url = tunnel.url.replace("https://", "");
   online_url = online_url.replace(".loca.lt", "");
   tunnel.on("close", () => {});
-  
 })();
-
