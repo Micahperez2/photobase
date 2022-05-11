@@ -9,27 +9,7 @@ var app = express();
 
 // Require static assets from public folder
 app.use(express.static(path.join(__dirname, "public")));
-<<<<<<< HEAD
 app.use(express.urlencoded({ extended: true }));
-=======
-
-//var mostRecentDir = path.join(__dirname, '../mostRecentDir')
-//var most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
-
-// try {
-//   if (!fs.existsSync(mostRecentDir)) {
-//     fs.mkdirSync(mostRecentDir);
-//   }
-// } catch (err) {
-//   console.error(err);
-// }
-
-// set the view engine to ejs
-//app.set("view engine", "ejs");
-//app.set("views", __dirname);
-
-/* Test */
->>>>>>> 34cadcb682c882073d8ac45361a0344a776d6511
 
 // Set view engine as EJS
 app.engine("ejs", require("ejs").renderFile);
@@ -48,23 +28,7 @@ const photobaseDir = `${homeDir}/Desktop/Photobase-Photos`;
 
 // On default path
 app.get("/", (req, res) => {
-<<<<<<< HEAD
 
-=======
-  //const mostRecentDir = path.join(__dirname, '../mostRecentDir');
-  //most_recent_photo = "";
-  //most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
-
-  // try {
-  //   if (!fs.existsSync(mostRecentDir)) {
-  //     fs.mkdirSync(mostRecentDir);
-  //   }
-  // } catch (err) {
-  //   console.error(err);
-  // }
-
-  console.log("rerender");
->>>>>>> 34cadcb682c882073d8ac45361a0344a776d6511
   //Render the most recent photo to the current screen
   var tagline = "Photos";
   res.render("pages/index", {
@@ -119,54 +83,15 @@ app.post(
   ),
   (req, res) => {
     console.log(most_recent_photo);
-<<<<<<< HEAD
-=======
-    //If image copy was successful than delete image saved in desktop directory
-    // fs.unlink(
-    //   `${mostRecentDir}/most_recent.jpg`,
-    //     (err) => {
-    //     if (err) {
-    //         console.log("failed to delete local image:"+err);
-    //     } else {
-    //         console.log('successfully deleted local image');
-    //     }
-    //   });
-
-    // fs.copyFile(
-    //   `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
-    //   `${mostRecentDir}/most_recent.jpg`,
-    //   (err) => {
-    //     if (err) throw err;
-    //     console.log("source.txt was copied to destination.txt");
-
-    //     //If image copy was successful than delete image saved in desktop directory
-    //     fs.unlink(
-    //       `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
-    //        (err) => {
-    //        if (err) {
-    //            console.log("failed to delete local image:"+err);
-    //        } else {
-    //            console.log('successfully deleted local image');
-    //        }
-    //      });
-    //   }
-    // );
->>>>>>> 34cadcb682c882073d8ac45361a0344a776d6511
     most_recent_photo = "";
-    most_recent_photo =
-      "atom://" +
-      `${homeDir}/Desktop/Photobase-Photos/` +
-      `${most_recent_photo_name}`;
+    most_recent_photo = "atom://"+`${homeDir}/Desktop/Photobase-Photos/`+ `${most_recent_photo_name}`;
     console.log(most_recent_photo);
 
-<<<<<<< HEAD
     //Redirect back home
     res.redirect('/');
-=======
-    res.redirect("/");
->>>>>>> 34cadcb682c882073d8ac45361a0344a776d6511
   }
 );
+
 
 // about page
 app.get("/about", function (req, res) {
@@ -187,4 +112,6 @@ app.listen(8080, "0.0.0.0");
   online_url = tunnel.url.replace("https://", "");
   online_url = online_url.replace(".loca.lt", "");
   tunnel.on("close", () => {});
+  
 })();
+
