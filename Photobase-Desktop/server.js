@@ -25,7 +25,6 @@ app.use(express.static(path.join(__dirname, "public")));
 //   console.error(err);
 // }
 
-
 // set the view engine to ejs
 //app.set("view engine", "ejs");
 //app.set("views", __dirname);
@@ -54,19 +53,17 @@ var most_recent_photo_name = "";
 
 // use res.render to load up an ejs view file
 app.get("/", (req, res) => {
+  //const mostRecentDir = path.join(__dirname, '../mostRecentDir');
+  //most_recent_photo = "";
+  //most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
 
-
-    //const mostRecentDir = path.join(__dirname, '../mostRecentDir');
-    //most_recent_photo = "";
-    //most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
-
-    // try {
-    //   if (!fs.existsSync(mostRecentDir)) {
-    //     fs.mkdirSync(mostRecentDir);
-    //   }
-    // } catch (err) {
-    //   console.error(err);
-    // }
+  // try {
+  //   if (!fs.existsSync(mostRecentDir)) {
+  //     fs.mkdirSync(mostRecentDir);
+  //   }
+  // } catch (err) {
+  //   console.error(err);
+  // }
 
   console.log("rerender");
   //Render the most recent photo to the current screen
@@ -77,7 +74,6 @@ app.get("/", (req, res) => {
     online_url: online_url,
     most_recent_photo: most_recent_photo,
   });
-
 });
 
 const handleError = (err, res) => {
@@ -131,7 +127,7 @@ app.post(
     //     if (err) {
     //         console.log("failed to delete local image:"+err);
     //     } else {
-    //         console.log('successfully deleted local image');                                
+    //         console.log('successfully deleted local image');
     //     }
     //   });
 
@@ -149,19 +145,21 @@ app.post(
     //        if (err) {
     //            console.log("failed to delete local image:"+err);
     //        } else {
-    //            console.log('successfully deleted local image');                                
+    //            console.log('successfully deleted local image');
     //        }
     //      });
     //   }
     // );
     most_recent_photo = "";
-    most_recent_photo = "atom://"+`${homeDir}/Desktop/Photobase-Photos/`+ `${most_recent_photo_name}`;
+    most_recent_photo =
+      "atom://" +
+      `${homeDir}/Desktop/Photobase-Photos/` +
+      `${most_recent_photo_name}`;
     console.log(most_recent_photo);
 
-    res.redirect('/');
+    res.redirect("/");
   }
 );
-
 
 // about page
 app.get("/about", function (req, res) {
@@ -182,6 +180,4 @@ app.listen(8080, "0.0.0.0");
   online_url = tunnel.url.replace("https://", "");
   online_url = online_url.replace(".loca.lt", "");
   tunnel.on("close", () => {});
-  
 })();
-
