@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 //Used to look for static files (css) in public folder
 //app.use(express.static("public"));
 // Require static assets from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
 //var mostRecentDir = path.join(__dirname, '../mostRecentDir')
 //var most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
@@ -30,17 +30,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.set("view engine", "ejs");
 //app.set("views", __dirname);
 
-/* Test */ 
+/* Test */
 
 // Set view engine as EJS
-app.engine('ejs', require('ejs').renderFile);
-app.set('view engine', 'ejs');
-// Set 'views' directory for any views 
+app.engine("ejs", require("ejs").renderFile);
+app.set("view engine", "ejs");
+// Set 'views' directory for any views
 // being rendered res.render()
-app.set('views', path.join(__dirname, 'views'));
+app.set("views", path.join(__dirname, "views"));
 
 /* End of test */
-
 
 var photos = [];
 var online_url = "";
