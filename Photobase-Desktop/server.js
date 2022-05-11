@@ -7,68 +7,28 @@ const fs = require("fs");
 const os = require("os");
 var app = express();
 
-app.use(express.urlencoded({ extended: true }));
-
-//Used to look for static files (css) in public folder
-//app.use(express.static("public"));
 // Require static assets from public folder
 app.use(express.static(path.join(__dirname, "public")));
-
-//var mostRecentDir = path.join(__dirname, '../mostRecentDir')
-//var most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
-
-// try {
-//   if (!fs.existsSync(mostRecentDir)) {
-//     fs.mkdirSync(mostRecentDir);
-//   }
-// } catch (err) {
-//   console.error(err);
-// }
-
-
-// set the view engine to ejs
-//app.set("view engine", "ejs");
-//app.set("views", __dirname);
-
-/* Test */
+app.use(express.urlencoded({ extended: true }));
 
 // Set view engine as EJS
 app.engine("ejs", require("ejs").renderFile);
 app.set("view engine", "ejs");
-// Set 'views' directory for any views
-// being rendered res.render()
 app.set("views", path.join(__dirname, "views"));
 
-/* End of test */
 
 var photos = [];
 var online_url = "";
+var most_recent_photo = "";
+var most_recent_photo_name = "";
 
 //Get desktop path and use it for photos directory path
 const homeDir = require("os").homedir();
 const photobaseDir = `${homeDir}/Desktop/Photobase-Photos`;
 
-//const mostRecentDir = path.join(__dirname, '../mostRecentDir');
-most_recent_photo = "";
-var most_recent_photo_name = "";
-
-// use res.render to load up an ejs view file
+// On default path
 app.get("/", (req, res) => {
 
-
-    //const mostRecentDir = path.join(__dirname, '../mostRecentDir');
-    //most_recent_photo = "";
-    //most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
-
-    // try {
-    //   if (!fs.existsSync(mostRecentDir)) {
-    //     fs.mkdirSync(mostRecentDir);
-    //   }
-    // } catch (err) {
-    //   console.error(err);
-    // }
-
-  console.log("rerender");
   //Render the most recent photo to the current screen
   var tagline = "Photos";
   res.render("pages/index", {
@@ -77,7 +37,6 @@ app.get("/", (req, res) => {
     online_url: online_url,
     most_recent_photo: most_recent_photo,
   });
-
 });
 
 const handleError = (err, res) => {
@@ -97,12 +56,12 @@ const multerStorage = multer.diskStorage({
     cb(null, photobaseDir);
   },
   filename: (req, file, cb) => {
-    //cb(null, `most_recent.jpg`);
     cb(null, `${file.originalname}.jpg`);
     most_recent_photo_name = `${file.originalname}.jpg`;
   },
 });
 
+//Possible Multer Filter below
 // Multer Filter
 // const multerFilter = (req, file, cb) => {
 //   if (file.mimetype.split("/")[1] === "jpg") {
@@ -124,40 +83,11 @@ app.post(
   ),
   (req, res) => {
     console.log(most_recent_photo);
-    //If image copy was successful than delete image saved in desktop directory
-    // fs.unlink(
-    //   `${mostRecentDir}/most_recent.jpg`,
-    //     (err) => {
-    //     if (err) {
-    //         console.log("failed to delete local image:"+err);
-    //     } else {
-    //         console.log('successfully deleted local image');                                
-    //     }
-    //   });
-
-    // fs.copyFile(
-    //   `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
-    //   `${mostRecentDir}/most_recent.jpg`,
-    //   (err) => {
-    //     if (err) throw err;
-    //     console.log("source.txt was copied to destination.txt");
-
-    //     //If image copy was successful than delete image saved in desktop directory
-    //     fs.unlink(
-    //       `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
-    //        (err) => {
-    //        if (err) {
-    //            console.log("failed to delete local image:"+err);
-    //        } else {
-    //            console.log('successfully deleted local image');                                
-    //        }
-    //      });
-    //   }
-    // );
     most_recent_photo = "";
     most_recent_photo = "atom://"+`${homeDir}/Desktop/Photobase-Photos/`+ `${most_recent_photo_name}`;
     console.log(most_recent_photo);
 
+    //Redirect back home
     res.redirect('/');
   }
 );

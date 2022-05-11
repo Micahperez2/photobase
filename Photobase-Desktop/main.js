@@ -3,8 +3,7 @@ const path = require("path");
 const fs = require("fs");
 const server = require("./server");
 
-//app.commandLine.appendSwitch ("disable-http-cache");
-
+/* Creating custom File://-like protocol */
 app.whenReady ().then(() => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
@@ -15,33 +14,6 @@ app.whenReady ().then(() => {
 protocol.registerSchemesAsPrivileged([
   { scheme: 'atom', privileges: { bypassCSP: true } }
 ])
-
-
-async function handleFileOpen() {
-  const { canceled, filePaths } = await dialog.showOpenDialog();
-  if (canceled) {
-    return;
-  } else {
-    return filePaths[0];
-  }
-}
-
-async function saveFile() {
-  let data = "This is a file containing a collection of books.";
-
-  fs.writeFile(
-    "/Users/micahperez/Documents/Practice/photobase/desktop/books.txt",
-    data,
-    (err) => {
-      if (err) console.log(err);
-      else {
-        console.log("File written successfully\n");
-        console.log("The written has the following contents:");
-        console.log(fs.readFileSync("books.txt", "utf8"));
-      }
-    }
-  );
-}
 
 //Create app window with min/max size
 function createWindow() {
@@ -65,27 +37,23 @@ function createWindow() {
     app.dock.setIcon(path.join(__dirname, "public/Photobase-Icon-512.jpg"));
   }
 
+  //Have application icon bounce on click
   setTimeout(() => {
     app.dock.bounce();
   }, 5000);
 
-  
+  //Load express server
   mainWindow.loadURL("http://localhost:8080");
 }
 
-
+//Run function above when ready
 app.whenReady().then(createWindow);
 
 app.on("resize", function (e, x, y) {
   mainWindow.setSize(x, y);
 });
 
-// app.on("window-all-closed", function () {
-//   //if (process.platform !== "darwin") {
-//     app.quit();
-//   //}
-// });
-
+//If not on mac, close the window on x
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
