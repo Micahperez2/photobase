@@ -1,5 +1,5 @@
 {
-  "name": "photobase",
+  "name": "Photobase",
   "version": "1.0.0",
   "description": "An Electron JS App",
   "main": "main.js",
@@ -11,7 +11,7 @@
       "category": "your.app.category.type",
       "icon": "public/Photobase-Icon-512.jpg"
     }
-  },  
+  },
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
@@ -33,6 +33,7 @@
     "localtunnel": "^2.0.2",
     "multer": "^1.4.4",
     "ngrok": "^4.3.0",
+    "nocache": "^3.0.3",
     "node-unique-machine-id": "^1.1.0",
     "nodemon": "^2.0.15",
     "pug": "^3.0.2",

@@ -14,6 +14,18 @@ app.use(express.urlencoded({ extended: true }));
 // Require static assets from public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//var mostRecentDir = path.join(__dirname, '../mostRecentDir')
+//var most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
+
+// try {
+//   if (!fs.existsSync(mostRecentDir)) {
+//     fs.mkdirSync(mostRecentDir);
+//   }
+// } catch (err) {
+//   console.error(err);
+// }
+
+
 // set the view engine to ejs
 //app.set("view engine", "ejs");
 //app.set("views", __dirname);
@@ -32,14 +44,32 @@ app.set('views', path.join(__dirname, 'views'));
 
 var photos = [];
 var online_url = "";
-var most_recent_photo = "";
 
 //Get desktop path and use it for photos directory path
 const homeDir = require("os").homedir();
-const photobaseDir = `${homeDir}/Desktop/Photobase Photos`;
+const photobaseDir = `${homeDir}/Desktop/Photobase-Photos`;
+
+//const mostRecentDir = path.join(__dirname, '../mostRecentDir');
+most_recent_photo = "";
+var most_recent_photo_name = "";
 
 // use res.render to load up an ejs view file
 app.get("/", (req, res) => {
+
+
+    //const mostRecentDir = path.join(__dirname, '../mostRecentDir');
+    //most_recent_photo = "";
+    //most_recent_photo = "atom://"+`${mostRecentDir}/most_recent.jpg`;
+
+    // try {
+    //   if (!fs.existsSync(mostRecentDir)) {
+    //     fs.mkdirSync(mostRecentDir);
+    //   }
+    // } catch (err) {
+    //   console.error(err);
+    // }
+
+  console.log("rerender");
   //Render the most recent photo to the current screen
   var tagline = "Photos";
   res.render("pages/index", {
@@ -48,6 +78,7 @@ app.get("/", (req, res) => {
     online_url: online_url,
     most_recent_photo: most_recent_photo,
   });
+
 });
 
 const handleError = (err, res) => {
@@ -67,19 +98,20 @@ const multerStorage = multer.diskStorage({
     cb(null, photobaseDir);
   },
   filename: (req, file, cb) => {
-    cb(null, `most_recent.jpg`);
+    //cb(null, `most_recent.jpg`);
     cb(null, `${file.originalname}.jpg`);
+    most_recent_photo_name = `${file.originalname}.jpg`;
   },
 });
 
 // Multer Filter
-const multerFilter = (req, file, cb) => {
-  if (file.mimetype.split("/")[1] === "jpg") {
-    cb(null, true);
-  } else {
-    cb(new Error("Not a JPG File!!"), false);
-  }
-};
+// const multerFilter = (req, file, cb) => {
+//   if (file.mimetype.split("/")[1] === "jpg") {
+//     cb(null, true);
+//   } else {
+//     cb(new Error("Not a JPG File!!"), false);
+//   }
+// };
 
 const upload = multer({
   storage: multerStorage,
@@ -92,23 +124,45 @@ app.post(
     "photodata" /* name attribute of <file> element in your form */
   ),
   (req, res) => {
-    fs.copyFile(
-      `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
-      "public/most_recent.jpg",
-      (err) => {
-        if (err) throw err;
-        console.log("source.txt was copied to destination.txt");
-      }
-    );
+    console.log(most_recent_photo);
+    //If image copy was successful than delete image saved in desktop directory
+    // fs.unlink(
+    //   `${mostRecentDir}/most_recent.jpg`,
+    //     (err) => {
+    //     if (err) {
+    //         console.log("failed to delete local image:"+err);
+    //     } else {
+    //         console.log('successfully deleted local image');                                
+    //     }
+    //   });
 
-    //const tempPath = req.file.path;
-    console.log(req.file.filename);
-    most_recent_photo = "most_recent.jpg";
+    // fs.copyFile(
+    //   `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
+    //   `${mostRecentDir}/most_recent.jpg`,
+    //   (err) => {
+    //     if (err) throw err;
+    //     console.log("source.txt was copied to destination.txt");
 
-    //most_recent_photo = path.join(`${homeDir}/Desktop/Photobase%20Photos`, req.file.filename);
-    //console.log(most_recent_photo);
+    //     //If image copy was successful than delete image saved in desktop directory
+    //     fs.unlink(
+    //       `${homeDir}/Desktop/Photobase Photos/most_recent.jpg`,
+    //        (err) => {
+    //        if (err) {
+    //            console.log("failed to delete local image:"+err);
+    //        } else {
+    //            console.log('successfully deleted local image');                                
+    //        }
+    //      });
+    //   }
+    // );
+    most_recent_photo = "";
+    most_recent_photo = "atom://"+`${homeDir}/Desktop/Photobase-Photos/`+ `${most_recent_photo_name}`;
+    console.log(most_recent_photo);
+
+    res.redirect('/');
   }
 );
+
 
 // about page
 app.get("/about", function (req, res) {
@@ -129,4 +183,6 @@ app.listen(8080, "0.0.0.0");
   online_url = tunnel.url.replace("https://", "");
   online_url = online_url.replace(".loca.lt", "");
   tunnel.on("close", () => {});
+  
 })();
+

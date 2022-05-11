@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="refresh" content="1">
+  
   <%- include('../partials/head'); %>
 </head>
 <body class="container" style="background: #121212">
@@ -12,11 +13,11 @@
 
 <main>
   
-    <h4 style="color: white; padding-top: 20px;" class="text-center">Most Recent Photo: </h4>
+    <h4 style="color: white; padding-top: 20px;" class="text-center">Last Photo Sent: </h4>
     <!-- <p><%= tagline %></p> -->
     <div class="space"></div> 
 
-    <img src="most_recent.jpg" alt="Most Recent Picture" class="text-center" onerror="this.style.display='none'" width=60% height=auto> 
+    <img src="<%= most_recent_photo %> "alt="Last Photo Sent" class="text-center" onerror="this.style.display='none'" width=60% height=auto> 
 <!-- 
     <ul style="color: white" class="center">
       <% photos.forEach(function(photo) { %>
